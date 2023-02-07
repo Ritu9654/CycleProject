@@ -2,7 +2,9 @@ package com.cycle.controller;
 
 import java.security.Principal;
 import java.util.List;
+
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -53,7 +55,7 @@ public class BuyerController {
 	public String dashboard(@PathVariable("page") Integer page, Model m, Principal principal) {
 		m.addAttribute("title", "All Bookings");
 
-		Pageable pageable = PageRequest.of(page, 2);
+		Pageable pageable = PageRequest.of(page, 3);
 
 		Page<Cycle> cycles = this.cycleRepository.findAllCycle(pageable);
 		m.addAttribute("cycles", cycles);
@@ -82,9 +84,9 @@ public class BuyerController {
 			Pageable pageable = PageRequest.of(page, 8);
 //
 			Page<Cycle> cycles = this.cycleRepository.findCyclesByUser(user.getUid(), pageable);
-			
-			System.out.println("cycles = "+cycles);
-			
+
+			System.out.println("cycles = " + cycles);
+
 //			Page<Cycle> cycles = this.cycleRepository.findCyclesByUser(user.getUid());
 			m.addAttribute("cycles", cycles);
 			m.addAttribute("currentPage", page);
@@ -114,7 +116,6 @@ public class BuyerController {
 
 		try {
 
-		
 			for (Cycle cycle : fcart) {
 				Orders order = new Orders();
 				order.setUser(user);
@@ -125,8 +126,7 @@ public class BuyerController {
 
 				Cycle cycle2 = this.cycleRepository.findById(cycle.getCid()).get();
 				cycle2.setQuantity(cycle2.getQuantity() - 1);
-				
-				
+
 				this.cycleRepository.save(cycle2);
 				this.orderRepository.save(order);
 

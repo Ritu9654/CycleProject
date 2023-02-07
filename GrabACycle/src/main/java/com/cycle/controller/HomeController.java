@@ -2,6 +2,8 @@ package com.cycle.controller;
 
 import java.security.Principal;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -16,9 +18,6 @@ import com.cycle.dao.UserRepository;
 import com.cycle.entities.User;
 import com.cycle.helper.Message;
 
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-
 @Controller
 public class HomeController {
 
@@ -31,6 +30,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public String home(Model model, Principal principal) {
 
+		System.out.print("Home method  called");
 		User user = null;
 
 		if (principal != null)

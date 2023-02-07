@@ -14,9 +14,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Data
+//@Audited
 @Table(name = "Cycle_Details")
 public class Cycle {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer cid;
@@ -122,7 +126,5 @@ public class Cycle {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	
 
 }
