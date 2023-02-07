@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/adminbase::Layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Update cycle page</title>
+</head>
+<body>
+	<section>
+
+
+		<div class="card mr-3 ml-3">
+
+			<div class="card-body ml-0">
+
+				<h1 class="text-center">Update Cycle Details</h1>
+
+				<div class="container-fluid mt-1 ml-0">
+
+					<div class="row ml-0 mt-5">
+
+						<div class="col-md-8 offset-md-4">
+
+							<form action="#" th:object="${cycle}"
+								enctype="multipart/form-data" method="POST"
+								th:action="@{/admin/process-update}" class="mt-2">
+
+								<input type="hidden" th:value="${cycle.cid}" name="cid" />
+
+
+								<!-- Cycle Name  -->
+
+								<div class="input-group row">
+
+									<label class="col-3">Cycle Name </label> &nbsp; &nbsp; <input
+										required type="text" id="Name" name="name"
+										th:value="${cycle.name}" class="form-control col-9" />
+
+								</div>
+
+
+								<!-- Cycle Type  -->
+
+								<div class="input-group mt-3 row">
+
+									<label class="col-3">Cycle Type </label> &nbsp; &nbsp; <input
+										required type="text" id="type" name="type"
+										th:value="${cycle.type}" class="form-control col-9" />
+
+								</div>
+
+								<!-- Cycle Model  -->
+
+								<div class="input-group mt-3 row">
+
+									<label class="col-3">Cycle Model </label> &nbsp; &nbsp; <input
+										required type="text" id="model" name="model"
+										th:value="${cycle.model}" class="form-control col-9" />
+
+								</div>
+
+
+								<!-- Cycle quantity  -->
+
+								<div class="input-group mt-3 row">
+
+									<label class="col-3">Quantity </label> &nbsp; &nbsp; <input
+										required type="number" id="quantity" name="quantity"
+										th:value="${cycle.quantity}" class="form-control col-9" />
+
+								</div>
+
+								<!-- Cycle Price  -->
+
+								<div class="input-group mt-3 row">
+
+									<label class="col-3">Price </label> &nbsp; &nbsp; <input
+										required type="number" id="price" name="price"
+										th:value="${cycle.price}" class="form-control col-9" />
+
+								</div>
+
+
+								<!-- Cycle Description -->
+
+								<div class="form-group mt-3 row">
+
+									<label class="col-3">Description </label> <br>
+									<textarea id="mytextarea" name="description"
+										th:text="${cycle.description}" class="form-control col-9"
+										rows="10"></textarea>
+
+								</div>
+
+								<!-- Contact Image  -->
+
+								<div class="container text-center">
+									<img style="width: 250px; height: 250px;"
+										class="img-fluid my_profile_picture" src=""
+										th:src="@{'/img/'+${cycle.imageurl}}" alt="" />
+								</div>
+
+								<p class="text-secondary">Choose new profile pic</p>
+
+								<div class="custom-file">
+									<input type="file" name="profileImage" />
+
+								</div>
+
+
+								<div class="container text-center">
+
+									<button class="btn btn-outline-primary">Update Cycle</button>
+
+								</div>
+
+
+
+
+							</form>
+
+
+						</div>
+
+
+					</div>
+
+				</div>
+
+
+			</div>
+
+		</div>
+
+	</section>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/adminbase::Layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>add cycle page</title>
+</head>
+<body>
+	<section>
+
+
+		<div class="card mr-3 ml-3">
+
+			<div class="card-body">
+
+				<h1 class="text-center">Add Cycle</h1>
+
+				<div class="container-fluid mt-1">
+
+					<div class="row">
+
+						<div class="col-md-8 offset-md-2">
+
+							<form action="#" enctype="multipart/form-data" method="POST"
+								th:action="@{process-cycle}" class="mt-2">
+
+
+								<!-- Cycle Name  -->
+
+								<div class="input-group">
+
+									<div class="input-group-prepend">
+
+										<div class="input-group-text ">
+
+											<i class="fa fa-plus"></i>
+
+										</div>
+
+									</div>
+
+									<input required type="text" id="Name" name="name"
+										placeholder="Enter Name here" class="form-control" />
+
+								</div>
+
+
+								<!-- Cycle Type  -->
+
+								<div class="input-group mt-3">
+
+									<div class="input-group-prepend">
+
+										<div class="input-group-text ">
+
+											<i class="fa fa-plus"></i>
+
+										</div>
+
+									</div>
+
+									<input required type="text" id="type" name="type"
+										placeholder="Enter Type here" class="form-control" />
+
+								</div>
+
+								<!-- Cycle Model  -->
+
+								<div class="input-group mt-3">
+
+									<div class="input-group-prepend">
+
+										<div class="input-group-text ">
+
+											<i class="fa fa-plus"></i>
+
+										</div>
+
+									</div>
+
+									<input required type="text" id="model" name="model"
+										placeholder="Enter Model here" class="form-control" />
+
+								</div>
+
+
+								<!-- Cycle quantity  -->
+
+								<div class="input-group mt-3">
+
+									<div class="input-group-prepend">
+
+										<div class="input-group-text ">
+
+											<i class="fa fa-plus"></i>
+
+										</div>
+
+									</div>
+
+									<input required type="number" id="quantity" name="quantity"
+										placeholder="Enter quantity here" class="form-control" />
+
+								</div>
+
+								<!-- Cycle Price  -->
+
+								<div class="input-group mt-3">
+
+									<div class="input-group-prepend">
+
+										<div class="input-group-text ">
+
+											<i class="fa fa-plus"></i>
+
+										</div>
+
+									</div>
+
+									<input required type="number" id="price" name="price"
+										placeholder="Enter price here" class="form-control" />
+
+								</div>
+
+
+								<!-- Cycle Description -->
+
+								<div class="form-group mt-3">
+
+									<textarea id="mytextarea" placeholder="Enter cycle description"
+										name="description" class="form-control" rows="10"></textarea>
+
+								</div>
+
+								<!-- Cycle Image  -->
+
+								<div class="custom-file">
+									<input type="file" name="profileImage" />
+
+								</div>
+
+								<div class="container text-center">
+
+									<button class="btn btn-outline-primary">Add Cycle</button>
+
+								</div>
+
+
+
+
+							</form>
+
+
+						</div>
+
+
+					</div>
+
+				</div>
+
+
+			</div>
+
+		</div>
+
+	</section>
+</body>
+</html>

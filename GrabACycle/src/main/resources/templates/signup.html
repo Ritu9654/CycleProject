@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::Layout(~{::section})">
+
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>My Website</title>
+<link rel="stylesheet" href="./style.css">
+<link rel="icon" href="./favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<section>
+
+		<div class="container" id="registerbody">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+
+					<div class="my-card mt-1">
+
+						<div th:if="${session.message}"
+							th:classappend="${session.message.type}" class="alert"
+							role="alert">
+							<p class="text-center" th:text="${session.message.content}"></p>
+							<!-- <th:block th:text="${#session.removeAttribute('message')}"></th:block>-->
+
+
+
+						</div>
+						<h1 class="text-center">Register</h1>
+
+						<form novalidate th:action="@{/do_register}" method="post"
+							th:object="${user1} " class="needs-validation">
+
+							<div class="mb-3">
+								<label for="name_field" class="form-label">Name</label> <input
+									class="form-control" id="name_field"
+									placeholder="Enter your name" name="name"
+									th:value="${user1.name}" required>
+
+								<div class="valid-feedback">Looks good!</div>
+								<div class="invalid-feedback">Please enter a name</div>
+							</div>
+							<div class="invalid-feedback">Please provide a valid name.
+							</div>
+
+							<div class="mb-3">
+								<label for="email_field" class="form-label">Email</label> <input
+									type="email" name="email" class="form-control" id="email_field"
+									placeholder="" th:value="${user1.email}" required>
+
+								<div class="valid-feedback">Looks good!</div>
+								<div class="invalid-feedback">Please enter email</div>
+							</div>
+							<div class="invalid-feedback">Please provide a valid email.
+							</div>
+
+							<div class="mb-3">
+								<label for="dob_field" class="form-label">Dob</label> <input
+									type="date" class="form-control" id="dob_field" name="dob"
+									required>
+								<div class="valid-feedback">Looks good!</div>
+								<div class="invalid-feedback">Please enter valid dob</div>
+							</div>
+
+							<div class="mb-3">
+								<label for="pass_field" class="form-label">Password</label> <input
+									name="password" type="password" class="form-control"
+									id="pass_field" placeholder="" required>
+								<div class="valid-feedback">Looks good!</div>
+								<div class="invalid-feedback">Please enter a password</div>
+							</div>
+							<div class="text-center">
+
+								<button type="submit" class="btn btn-danger align-center">Submit</button>
+								<button type="reset" class="btn btn-warning">Reset</button>
+							</div>
+					</div>
+
+
+					<div class="container"></div>
+					</form>
+
+
+
+
+				</div>
+
+
+			</div>
+
+		</div>
+
+		</div>
+
+	</section>
+	<!--<script src="index.js"></script>-->
+</body>
+</html>

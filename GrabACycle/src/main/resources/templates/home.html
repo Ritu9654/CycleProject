@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>this is home page</title>
+</head>
+<body>
+
+	<section
+		class="banner d-flex justify-content-center align-items-center">
+		<div class="text-center">
+			<h1 class="font-weight-bold">Grab A Cycle</h1>
+			<p>Check out an extensive range of bicycles online. We have
+				cycles and bikes for all brand for every rider at the best price..</p>
+			<a th:if="${user != null and user.role=='ROLE_BUYER'}"
+				th:href="@{/buyer/dashboard/viewCycle/0}">
+				<button class="btn bg-success btn-lg text-white" id="shopnow">Shop
+					Now..!!</button>
+			</a> <a th:if="${user != null and user.role=='ROLE_ADMIN'}"
+				th:href="@{/admin/index/0}">
+				<button class="btn bg-success btn-lg text-white" id="shopnow">My
+					Dashboard</button>
+			</a>
+		</div>
+	</section>
+
+</body>
+</html>
