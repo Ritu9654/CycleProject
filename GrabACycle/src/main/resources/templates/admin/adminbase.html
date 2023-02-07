@@ -19,13 +19,39 @@
 	integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
 	crossorigin="anonymous" />
 
-<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/css/style1.css}">
+
+
+
+
+
+
+	<!-- bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="/css/style1.css">
+	<!-- Responsive-->
+	<link rel="stylesheet" href="/css/responsive.css">
+	<!-- fevicon -->
+	<link rel="icon" href="/img/fevicon.png" type="image/gif" />
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<!-- owl stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700,800&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="/css/owl.carousel.min.css">
+	<link rel="stylesoeet" href="/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+		media="screen">
+
 
 </head>
 <body>
 
 	<!--navbar-->
-	<nav
+	<!-- <nav
 		class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-primary">
 		<a class="navbar-brand" href="#">Grab A Cycle</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -94,7 +120,112 @@
 
 
 
-	</nav>
+	</nav> -->
+
+
+	<div class="header_section header_bg">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a href="/"><img class="logo" src="/img/onelogo.jpg"></a>
+	
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					
+					
+				</ul>
+				<form class="form-inline my-2 my-lg-0">
+					<div class="login_menu">
+						<ul>
+							<li class="nav-item active">
+								<a class="nav-link" href="/">Home</a>
+							</li>
+							
+					
+			
+							<li class="nav-item" th:if="${user == null}"><a class="nav-link"
+								th:href="@{/signin}" tabindex="-1" aria-disabled="true">Login</a></li> 
+				
+							
+				
+				
+				
+							<li class="nav-item" th:if="${user == null}"><a class="nav-link"
+								th:href="@{/signup}" href="#" tabindex="-1" aria-disabled="true">Sign
+									Up</a></li>
+				
+				
+				
+				
+				
+							<li class="nav-item"
+								th:if="${user != null and user.role=='ROLE_BUYER'}"><a
+								class="nav-link" th:href="@{/buyer/dashboard/viewCycle/0}"
+								tabindex="-1" aria-disabled="true"> Shop Now</a></li>
+				
+				
+						
+				
+							
+				
+							<li class="nav-item"
+								th:if="${user != null and user.role=='ROLE_BUYER'}"><a
+								class="nav-link" th:href="@{/buyer/viewCart}" tabindex="-1"
+								aria-disabled="true">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+									<path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+								  </svg>
+								  <i class="bi bi-cart"></i><span th:text="'('+${cartCount}+')'"> </span></a> 
+							</li>
+								
+						
+				
+							<li class="nav-item"
+								th:if="${user != null and user.role=='ROLE_ADMIN'}"><a
+								class="nav-link" th:href="@{/admin/index/0}" tabindex="-1"
+								aria-disabled="true"> My dashboard</a></li>
+				
+				
+				
+							
+							<li class="nav-item"
+										th:if="${user != null and user.role=='ROLE_BUYER'}"><a
+										class="nav-link" th:href="@{/buyer/mybookings/0}" tabindex="-1"
+										aria-disabled="true">My Bookings</a></li>
+							<li class="nav-item" th:if="${user != null}"><a
+								class="nav-link" th:href="@{/logout}" tabindex="-1"
+								aria-disabled="true"> Logout</a></li>
+	
+							
+				
+								<li class="nav-item" th:if="${user != null }"><a
+									class="nav-link " href="#" tabindex="-1" aria-disabled="true">Welcome
+										<span th:text="${user.name}"></span>
+								</a></li>
+							
+					
+							
+						</ul>
+					</div>
+					<div></div>
+				</form>
+			</div>
+			<div id="main">
+				<span style="font-size:36px;cursor:pointer; color: #120e0e" onclick="openNav()"><img src="/img/toggle-icon1.png" style="height: 30px;"></span>
+			</div>
+		</nav>
+		<!-- banner section end -->
+	
+	
+	
+	
+		
+	
+	
+		
+	</div>
 
 	<!--end navbar-->
 
@@ -146,13 +277,13 @@
 	<!-- END Content area  -->
 
 
-	<footer class="footer bg-light text-center text-lg-start">
-		<!-- Copyright -->
+	<!-- <footer class="footer bg-light text-center text-lg-start">
+		
 		<div class="text-center p-3"
 			style="background-color: rgba(0, 0, 0, 0.3);">© 2022 Copyright:
 			Saurabh and Ritu</div>
-		<!-- Copyright -->
-	</footer>
+		
+	</footer> -->
 
 
 
@@ -176,4 +307,35 @@
 	<script th:src="@{/js/script.js}"></script>
 
 </body>
+
+
+
+<!-- Javascript files-->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/jquery-3.0.0.min.js"></script>
+<script src="/js/plugin.js"></script>
+<!-- sidebar -->
+<script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/js/custom.js"></script>
+<!-- javascript -->
+<script src="/js/owl.carousel.js"></script>
+<script src="/https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+<script>
+	function openNav() {
+		document.getElementById("mySidenav").style.width = "250px";
+		document.getElementById("main").style.marginLeft = "250px";
+	}
+
+	function closeNav() {
+		document.getElementById("mySidenav").style.width = "0";
+		document.getElementById("main").style.marginLeft = "0";
+
+	}
+
+	$("#main").click(function () {
+		$("#navbarSupportedContent").toggleClass("nav-normal")
+	})
+</script>
 </html>

@@ -172,9 +172,6 @@ img {
     box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
 }
 
-.navbar-form input {
-    border: none !important;
-}
 
 .badge {
     font-weight: 500;
@@ -236,16 +233,24 @@ button {
     height: 100%;
 }
 
+body{
+	background:#e2e2e2!important;
+	margin-top: 5%;
+	height: 100%;
+	z-index: 999;
+	
+}
+
 
 /* .bg-light {
     background-color: transparent !important;
 
 } */
 
-.navbar-expand-lg {
+/* .navbar-expand-lg {
     position: relative;
     z-index: 9;
-}
+} */
 
 .logo {
     width: 85%;
@@ -254,8 +259,25 @@ button {
 }
 
 .navbar{
-    background-color: rgb(46, 50, 84) !important;
+   
 }
+
+.navbar , .dropdown-menu{
+    background-color: rgb(46, 50, 84) !important;
+    overflow: visible;
+    top: 0; 
+    width: 100%; /* Full width */
+    position: fixed;
+    z-index: 999;
+    
+  }
+  
+  
+  /* .dropdown-menu{
+      margin-top: 30%;
+  
+  } */
+  
 
 
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -372,7 +394,7 @@ button {
     z-index: 1;
 }
 .banner_taital {
-    width: 50%;
+    width: 100%;
     float: left;
     font-size: 50px;
     color: #1d0e4b;
@@ -381,11 +403,70 @@ button {
     padding-top: 40px;
 }
 
+
+
+@media only screen and (max-width: 600px) {
+	.sidebar {
+		display: none;
+		width: 80% !important;
+		background: white;
+		height: 100vh;
+		position: fixed;
+		padding-top: 20px;
+	}
+	.content {
+		margin-left: 0% !important;
+	}
+}
+
+.sidebar {
+	width: 18%;
+	background: white;
+	height: 100%;
+	position: fixed;
+	padding-top: 45px;
+	z-index: 999999999999999999999999999;
+}
+
+.sidebar a {
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+	text-decoration: none;
+	color: gray;
+}
+
+.sidebar a:hover {
+	background: #e2e2e2;
+}
+
+.sidebar .divider {
+	height: .5px;
+	width: 100%;
+	background: #e2e2e2;
+	margin-top: 10px;
+}
+
+.content {
+	margin-left: 20%;
+}
+
+.sidebar .crossBtn{
+	position: absolute;
+	top: 0;
+	right: 35px;
+	font-size: 36px;
+	cursor: pointer;
+}
+
+
+
+
 .banner_text {
     width: 100%;
     float: left;
-    font-size: 16px;
-    color:#f7c17b;
+    font-size: 30px;
+    color:#ff9306;
     margin: 0px;
 }
 

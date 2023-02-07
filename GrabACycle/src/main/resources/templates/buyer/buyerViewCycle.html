@@ -1,159 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="base::Layout(~{::section})">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+
 <head>
-<meta charset="UTF-8" />
-<title>this is home page</title>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+	<meta charset="UTF-8" />
+	<title>this is home page</title>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
 </head>
-<body>
 
-	<section>
+<body> <section> <div class="card mr-3 ml-3"> <div class="card-body"> <h1 class="text-center">Cycles</h1>
+				  <!-- search --> <div class="search-container my-3">  <input onkeyup="search()" id="search-input"
+						type="text" class="form-control" placeholder="Search your cycles" /> <div class="search-result">
+						 <!-- result goes here -->  </div>   </div>   <div class="table-responsive">  <section>
+						<!-- cycle section start -->
+						<div class="cycle_section layout_padding">
+							<div class="container">
+								<h1 class="cycle_taital">Our cycle</h1>
+								<p class="cycle_text">It is a long established fact that a reader will be distracted by
+									the </p> <div th:each="c : ${cycles}">
+									<div class="cycle_section_2 layout_padding">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="box_main">
+													<h6 class="number_text" th:text="${c.model}"></h6>
+													<div class="image_2"><img width="450" height="480" border="0"
+															th:src="@{'/img/'+${c.imageurl}}"></div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<h1 class="cycles_text" th:text="${c.name}"></h1>
+												<p class="lorem_text" th:text="${c.description}"
+													style="font-weight: bold; color:steelblue; text-align: right;"></p> 
+												<p class="lorem_text" th:text="'Type - '+ ${c.type}"
+													style="font-weight: bold; color:cadetblue;"></p> <p
+													class="lorem_text" th:if="${c.quantity>0}"
+													style="color: rgb(0, 128, 64); font-weight: bold;">In Stock</p> <p
+													class="lorem_text" th:if="${c.quantity<=0}"
+													style="color: rgb(255, 0, 0); font-weight: bold;">Out of Stock</p> 
+												<div class="btn_main"><a href="#"><button
+															class="btn btn-outline-success">Add to Cart </button></a>
+													<div class="buy_bt" th:if="${c.quantity<=0}"><a
+															th:href="@{'/buyer/addToCart/'+${c.cid}}"><button
+																class="btn btn-outline-success">Add to Cart</button></a>
+													</div>   <div style="margin-left: 3%;"><a
+															th:href="@{'/'+${c.cid}+'/cycle'}"><button
+																class="btn btn-outline-info">View Cycle</button></a>
+													</div>  <h4 class="price_text">Price <span
+															style=" color: #f7c17b">&#x20B9;</span> <span
+															style=" color: #325662" th:text="${c.price}"></span></h4>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								   <!-- cycle section end -->     <!--<div th:each="c : ${cycles}"> <div class="card" style="width: 18rem;"><a th:href="@{'/img/'+${c.imageurl}}" target="_blank"><img width="220" height="250" border="0" align="center"th:src="@{'/img/'+${c.imageurl}}" /></a><div class="card-body"><h5 class="card-title" th:text="${c.name}" style="color:darkcyan;"></h5><p class="card-text" th:text="${c.description}"></p>    <div class="container"> <div class="row"><div class="col-sm leftlabel">Type</div><div class="col-sm" th:text="${c.type}"> </div></div> <div class="row"><div class="col-sm leftlabel">Model</div><div class="col-sm" th:text="${c.model}"> </div></div> <div class="row"><div class="col-sm leftlabel">Status</div> <div class="col-sm" th:if="${c.quantity>0}" style="color: rgb(0, 128, 64)">Instock</div>  <div class="col-sm" th:if="${c.quantity<=0}" style="color: rgb(255, 0, 0)">Outof stock</div> </div> <div class="row"><div class="col-sm leftlabel">Price</div><div class="col-sm" th:text=" &#x20B9; + ${c.price}"> </div></div>   </div><br><a th:if="${c.quantity>0}"><ath:href="@{'/buyer/addToCart/'+${c.cid}}" class="btn btn-outline-success">Add to Cart</a> <a th:if="${c.quantity<=0}" class="btn btn-outline-success">Add to Cart</a>  <a th:href="@{'/'+${c.cid}+'/cycle'}" class="btn btn-outline-primary">View Cycle</a></div></div> </div>--> 
+							</div> <!-- pagination part -->  <nav aria-label="Page navigation example"> <ul
+									class="pagination"> <li th:if="${currentPage != 0}" class="page-item">
+										<ath:href="@{' /buyer/dashboard/viewCycle/'+${currentPage-1}}"class="page-link"
+											href="#">Previous</a>
+									</li>   <li th:classappend="${currentPage==i-1?'active':''}"
+										th:each="i : ${#numbers.sequence(1,totalPages)}" class="page-item">
+										<ath:href="@{' /buyer/dashboard/viewCycle/'+${i-1}}"class="page-link" href="#">
+											<span th:text="${i}"></span></a>
+									</li>  <li th:if="${currentPage+1 != totalPages}" class="page-item">
+										<ath:href="@{' /buyer/dashboard/viewCycle/'+${currentPage+1}}"class="page-link"
+											href="#">Next</a>
+									</li>
+								</ul>
+							</nav>   
+						</div> </div>  </section>  </body>
 
-		<div class="card mr-3 ml-3">
-
-			<div class="card-body">
-
-				<h1 class="text-center">Cycles</h1>
-
-
-				<!-- search -->
-
-				<div class="search-container my-3">
-
-
-					<input onkeyup="search()" id="search-input" type="text"
-						class="form-control" placeholder="Search your cycles" />
-
-					<div class="search-result">
-
-						<!--  result goes here -->
-
-
-					</div>
-
-
-
-				</div>
-
-
-
-				<div class="table-responsive tilesparent">
-					
-					<div th:each="c : ${cycles}">
-						
-						<div class="card" style="width: 18rem;">
-						  <a th:href="@{'/img/'+${c.imageurl}}" target="_blank">
-										<img width="220" height="250" border="0" align="center"
-										th:src="@{'/img/'+${c.imageurl}}" />
-								</a>
-						  <div class="card-body">
-						    <h5 class="card-title"  th:text="${c.name}" style="color:darkcyan;"></h5>
-						    <p class="card-text" th:text="${c.description}"></p>
-						    
-						    
-						    
-						    
-						   <div class="container">
-							   
-							   <div class="row">
-							    <div class="col-sm leftlabel">
-							      Type
-							    </div>
-							    <div class="col-sm" th:text="${c.type}">
-							      
-							    </div>
-							  </div>
-							  
-							   <div class="row">
-							    <div class="col-sm leftlabel">
-							      Model
-							    </div>
-							    <div class="col-sm" th:text="${c.model}">
-							      
-							    </div>
-							  </div>
-							   
-							  <div class="row">
-							    <div class="col-sm leftlabel">
-							      Status
-							    </div>
-							   
-							     <div class="col-sm" th:if="${c.quantity>0}" style="color: rgb(0, 128, 64)">In
-									stock</div>
-
-
-								<div class="col-sm" th:if="${c.quantity<=0}" style="color: rgb(255, 0, 0)">Out
-									of stock</div>
-							   
-							  </div>
-							  
-							  <div class="row">
-							    <div class="col-sm leftlabel">
-							      Price
-							    </div>
-							    <div class="col-sm" th:text=" &#x20B9; + ${c.price}">
-							      
-							    </div>
-							  </div>
-							  
-							  
-							  
-							</div>
-						    <br>
-						    <a th:if="${c.quantity>0}"><a
-									th:href="@{'/buyer/addToCart/'+${c.cid}}" class="btn btn-outline-success">Add to Cart</a>
-						    
-						    <a th:if="${c.quantity<=0}" class="btn btn-outline-success">Add to Cart</a>
-						    
-						    
-						    <a th:href="@{'/'+${c.cid}+'/cycle'}" class="btn btn-outline-primary">View Cycle</a>
-						  </div>
-						</div>
-						
-					</div>
-					
-				</div>
-
-				<!--  pagination part -->
-
-
-				<nav aria-label="Page navigation example">
-
-					<ul class="pagination">
-
-						<li th:if="${currentPage != 0}" class="page-item"><a
-							th:href="@{'/buyer/dashboard/viewCycle/'+${currentPage-1}}"
-							class="page-link" href="#">Previous</a></li>
-
-
-
-						<li th:classappend="${currentPage==i-1?'active':''}"
-							th:each="i : ${#numbers.sequence(1,totalPages)}"
-							class="page-item"><a
-							th:href="@{'/buyer/dashboard/viewCycle/'+${i-1}}"
-							class="page-link" href="#"><span th:text="${i}"></span></a></li>
-
-
-						<li th:if="${currentPage+1 != totalPages}" class="page-item"><a
-							th:href="@{'/buyer/dashboard/viewCycle/'+${currentPage+1}}"
-							class="page-link" href="#">Next</a></li>
-					</ul>
-				</nav>
-
-
-
-			</div>
-
-		</div>
-
-
-	</section>
-
-
-</body>
 </html>
-
-
-

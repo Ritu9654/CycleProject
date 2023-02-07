@@ -56,7 +56,7 @@
 			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<div class=" navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				
 				
@@ -65,13 +65,10 @@
 				<div class="login_menu">
 					<ul>
 						<li class="nav-item active">
-							<a class="nav-link" href="index.html">Home</a>
+							<a class="nav-link" href="/">Home</a>
 						</li>
 						
-						<li class="nav-item">
-							<a class="nav-link" href="shop.html">Shop Now</a>
-						</li>
-		
+				
 		
 						<li class="nav-item" th:if="${user == null}"><a class="nav-link"
 							th:href="@{/signin}" tabindex="-1" aria-disabled="true">Login</a></li> 
@@ -117,32 +114,23 @@
 			
 			
 			
-						<li class="nav-item dropdown " th:if="${user != null}"><a
-							href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
-							role="button" aria-expanded="false">My Account <span
-								class="caret"></span></a>
-							<ul class="dropdown-menu bg-primary" role="menu">
-								<li class="nav-item"
+						
+						<li class="nav-item"
 									th:if="${user != null and user.role=='ROLE_BUYER'}"><a
 									class="nav-link" th:href="@{/buyer/mybookings/0}" tabindex="-1"
 									aria-disabled="true">My Bookings</a></li>
-			
-			
-			
-								<li class="divider"></li>
-								<li class="nav-item" th:if="${user != null}"><a
-									class="nav-link" th:href="@{/logout}" tabindex="-1"
-									aria-disabled="true"> Logout</a></li>
-			
-								<li class="divider"></li>
-							</ul></li>
+						<li class="nav-item" th:if="${user != null}"><a
+							class="nav-link" th:href="@{/logout}" tabindex="-1"
+							aria-disabled="true"> Logout</a></li>
+
+						
 			
 							<li class="nav-item" th:if="${user != null }"><a
 								class="nav-link " href="#" tabindex="-1" aria-disabled="true">Welcome
 									<span th:text="${user.name}"></span>
 							</a></li>
 						
-						<li  class="nav-item" ><a class="nav-link " tabindex="-1" href="#"><img src="/img/trolly-icon.png"></a></li>
+				
 						
 					</ul>
 				</div>
@@ -150,7 +138,7 @@
 			</form>
 		</div>
 		<div id="main">
-			<span style="font-size:36px;cursor:pointer; color: #120e0e" onclick="openNav()"><img src="img/toggle-icon1.png" style="height: 30px;"></span>
+			<span style="font-size:36px;cursor:pointer; color: #120e0e" onclick="openNav()"><img src="/img/toggle-icon1.png" style="height: 30px;"></span>
 		</div>
 	</nav>
 	<!-- banner section end -->
@@ -328,16 +316,30 @@
 <script src="/js/owl.carousel.js"></script>
 <script src="/https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 <script>
+
+
+
+window.onload = function() {
+	
+		document.getElementById("mySidenav").style.width = "250px";
+		document.getElementById("main").style.marginLeft = "250px";
+	
+
+}
+
+
+
+
 	function openNav() {
 		document.getElementById("mySidenav").style.width = "250px";
 		document.getElementById("main").style.marginLeft = "250px";
 	}
 
-	function closeNav() {
-		document.getElementById("mySidenav").style.width = "0";
-		document.getElementById("main").style.marginLeft = "0";
+	// function closeNav() {
+	// 	document.getElementById("mySidenav").style.width = "0";
+	// 	document.getElementById("main").style.marginLeft = "0";
 
-	}
+	// }
 
 	$("#main").click(function () {
 		$("#navbarSupportedContent").toggleClass("nav-normal")

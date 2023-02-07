@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.cycle.dao.UserRepository;
 import com.cycle.entities.User;
+import com.cycle.global.GlobalData;
 import com.cycle.helper.Message;
 
 @Controller
@@ -39,16 +40,11 @@ public class HomeController {
 			System.out.print("no session");
 
 		model.addAttribute("user", user);
+		model.addAttribute("cartCount", GlobalData.cart.size());
 
 		return "home";
 	}
 
-	@RequestMapping("/about")
-	public String about(Model model) {
-
-		model.addAttribute("title", "About grab a cycle");
-		return "about";
-	}
 
 	@RequestMapping("/signup")
 	public String signup(Model model, Principal principal) {

@@ -160,7 +160,7 @@ public class BuyerController {
 		return "redirect:/buyer/dashboard/viewCycle/0";
 	}
 
-	@GetMapping("/view")
+	@GetMapping("/viewCart")
 	public String getCart(Model model) {
 
 		model.addAttribute("cartCount", GlobalData.cart.size());
