@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Data
+//@Audited
 public class Orders {
 
 	@Id
@@ -87,7 +91,5 @@ public class Orders {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	
 
 }

@@ -48,28 +48,28 @@
 							<tr th:each="c : ${cycles}">
 
 
-								<td th:text="${c.cycle.name}"></td>
+								<td th:text="${c[0].cycle.name}"></td>
 
-								<td th:text="${c.cycle.type}"></td>
+								<td th:text="${c[0].cycle.type}"></td>
 
-								<td th:text="${c.cycle.model}"></td>
+								<td th:text="${c[0].cycle.model}"></td>
 
-								<td th:text="${c.cycle.description}"></td>
+								<td th:text="${c[0].cycle.description}"></td>
 
-								<td th:text="${c.totalAmount}"></td>
+								<td th:text="${c[0].totalAmount}"></td>
 
-								<td th:text="${c.quantity}"></td>
+								<td th:text="${c[0].quantity}"></td>
 
 								<!--<td th:text="${c.cycle.imageurl}"></td>-->
 
-								<td><a th:href="@{'/img/'+${c.imageurl}}" target="_blank">
+								<td><a th:href="@{'/img/'+${c[0].cycle.imageurl}}" target="_blank">
 										<img width="220" height="250" border="0" align="center"
-										th:src="@{'/img/'+${c.imageurl}}" />
+										th:src="@{'/img/'+${c[0].cycle.imageurl}}" />
 								</a></td>
 
-								<td th:text="${c.orderDate}"></td>
+								<td th:text="${c[0].orderDate}"></td>
 
-								<td th:text="${c.user.name}"></td>
+								<td th:text="${c[0].user.name}"></td>
 
 							</tr>
 						</tbody>

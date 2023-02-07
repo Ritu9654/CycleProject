@@ -16,6 +16,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Data
+//@Audited
 public class User {
 
 	@Id
@@ -107,7 +111,5 @@ public class User {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	
 
 }
