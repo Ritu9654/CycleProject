@@ -15,15 +15,22 @@
 				cycles and bikes for all brand for every rider at the best price..</p>
 			<a th:if="${user != null and user.role=='ROLE_BUYER'}"
 				th:href="@{/buyer/dashboard/viewCycle/0}">
-				<button class="btn bg-success btn-lg text-white" id="shopnow">Shop
-					Now..!!</button>
+				<button class="btn btn-lg text-white" id="shopnow">Shop Now..!!</button>
+			</a>
 			</a> <a th:if="${user != null and user.role=='ROLE_ADMIN'}"
 				th:href="@{/admin/index/0}">
-				<button class="btn bg-success btn-lg text-white" id="shopnow">My
+				<button class="btn  btn-lg text-white" id="shopnow">My
 					Dashboard</button>
 			</a>
 		</div>
+		
+
+
+
 	</section>
+
+
+	
 
 </body>
 </html>

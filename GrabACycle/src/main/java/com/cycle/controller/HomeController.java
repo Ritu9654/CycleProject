@@ -70,25 +70,33 @@ public class HomeController {
 
 	// handler for registering user
 	@RequestMapping(value = "/do_register", method = RequestMethod.POST)
-	public String registerUser(@ModelAttribute("user") User user, BindingResult result1, Model model,
-			HttpSession session) {
+	public String registerUser(@ModelAttribute("user1") User user, BindingResult result1, Model model,
+			HttpSession session,Principal principal) {
 		try {
 
 			if (result1.hasErrors()) {
 
 				System.out.println("error " + result1.toString());
-				model.addAttribute("user", user);
 				return "signup";
 			}
 
+
+
 			user.setRole("ROLE_BUYER");
 			user.setPassword(passwordEncoder.encode(user.getPassword()));
-			User result = this.userRepository.save(user);
-
-			model.addAttribute("user", new User());
+			this.userRepository.save(user);
 			session.setAttribute("message", new Message("Registered successfully ", "alert-success"));
-
 			session.setMaxInactiveInterval(150);
+
+			 user = null;
+
+			if (principal != null)
+				user = userRepository.getUserByUserName(principal.getName());
+			else
+				System.out.print("no session");
+
+			model.addAttribute("user", user);
+
 			return "login";
 
 		} catch (Exception e) {

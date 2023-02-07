@@ -43,14 +43,6 @@
 				<li class="nav-item active"><a class="nav-link" th:href="@{/}"
 					href="#">Home <span class="sr-only">(current)</span></a></li>
 
-				<li class="nav-item"><a class="nav-link" href="#">About</a></li>
-
-
-
-
-				<!-- <span style="font-style: italic;" th:text="${user != null} ? ${#strings.toUpperCase(user.name)} : 'user is null'"></span>-->
-
-
 
 				<li class="nav-item" th:if="${user == null}"><a
 					class="nav-link" th:href="@{/signin}" tabindex="-1"
@@ -64,53 +56,23 @@
 
 
 
-
-
-				<li class="nav-item"
-					th:if="${user != null and user.role=='ROLE_BUYER'}"><a
-					class="nav-link" th:href="@{/buyer/dashboard/viewCycle/0}"
-					tabindex="-1" aria-disabled="true"> Shop Now</a></li>
-
-
-				<li class="nav-item"
-					th:if="${user != null and user.role=='ROLE_BUYER'}"><a
-					class="nav-link" th:href="@{/buyer/mybookings/0}" tabindex="-1"
-					aria-disabled="true">My Bookings</a></li>
-
 				<li class="nav-item" th:if="${user != null }"><a
 					class="nav-link " href="#" tabindex="-1" aria-disabled="true">Welcome
 						<span th:text="${user.name}"></span>
 				</a></li>
 
-				<li class="nav-item"
-					th:if="${user != null and user.role=='ROLE_BUYER'}"><a
-					class="nav-link" th:href="@{/buyer/view}" tabindex="-1"
-					aria-disabled="true">My Cart</a> <span> </span></li>
-				<li class="nav-item" th:if="${user != null}">
-
-					<p class="nav-link" th:text="${cartCount}" tabindex="-1"
-						aria-disabled="true">0</p>
-				</li>
-
+			
 				<li class="nav-item"
 					th:if="${user != null and user.role=='ROLE_ADMIN'}"><a
 					class="nav-link" th:href="@{/admin/index/0}" tabindex="-1"
 					aria-disabled="true"> My dashboard</a></li>
-
-
 
 				<li class="nav-item dropdown " th:if="${user != null}"><a
 					href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
 					role="button" aria-expanded="false">My Account <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu bg-primary" role="menu">
-						<li class="nav-item"
-							th:if="${user != null and user.role=='ROLE_BUYER'}"><a
-							class="nav-link" th:href="@{/buyer/mybookings/0}" tabindex="-1"
-							aria-disabled="true">My Bookings</a></li>
-
-
-
+					
 						<li class="divider"></li>
 						<li class="nav-item" th:if="${user != null}"><a
 							class="nav-link" th:href="@{/logout}" tabindex="-1"

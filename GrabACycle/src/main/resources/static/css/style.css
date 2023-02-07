@@ -1,7 +1,8 @@
 body{
 	background:#e2e2e2!important;
-	padding-top: 55px;
+	margin-top: 5%;
 	height: 100%;
+	z-index: 999;
 	
 }
 
@@ -11,10 +12,10 @@ body{
 	background: #FFFFFF;
 	}
 
-/*.bg-primary{
-	background: #009688 !important;
+.bg-primary{
+	background: #C34A36 !important;
 }
-*/
+
 .banner{
 	width:100%;
 	height:93vh;
@@ -22,8 +23,11 @@ body{
 	background-size:cover;
 	color: white;
 	background-color: black;
-	z-index: 999;
-
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: -1;
+	margin-top:2%;
 }
 
 
@@ -93,6 +97,7 @@ body{
   top: 0; 
   width: 100%; /* Full width */
   position: fixed;
+  z-index: 999;
   
 }
 
@@ -102,12 +107,16 @@ body{
 
 }
 
-#shopnow btn {
+#shopnow {
 	background: #C34A36 !important;
 }
 
 #registerbody{
 	margin-top: 5%;
+}
+
+.btn{
+	margin: 2%;
 }
 
 
