@@ -237,9 +237,10 @@ button {
 }
 
 
-.bg-light {
+/* .bg-light {
     background-color: transparent !important;
-}
+
+} */
 
 .navbar-expand-lg {
     position: relative;
@@ -250,6 +251,10 @@ button {
     width: 85%;
     float: left;
     
+}
+
+.navbar{
+    background-color: rgb(46, 50, 84) !important;
 }
 
 
@@ -370,7 +375,7 @@ button {
     width: 50%;
     float: left;
     font-size: 50px;
-    color: #ffffff;
+    color: #1d0e4b;
     font-weight: bold;
     font-family: 'Raleway ExtraBold', sans-serif;
     padding-top: 40px;
@@ -380,7 +385,7 @@ button {
     width: 100%;
     float: left;
     font-size: 16px;
-    color: #ffffff;
+    color:#f7c17b;
     margin: 0px;
 }
 

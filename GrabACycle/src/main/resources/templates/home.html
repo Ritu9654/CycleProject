@@ -1,168 +1,90 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="base::Layout(~{::section})">
-<head>
-<meta charset="UTF-8">
-<title>this is home page</title>
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
 
+<head>
+	<meta charset="UTF-8">
+	<title>this is home page</title>
+</head>
+
+<body>
 	<!-- <section class="banner d-flex justify-content-center align-items-center">
 		<div class="text-center">
 			<h1 class="font-weight-bold">Grab A Cycle</h1>
-			<p>Check out an extensive range of bicycles online. We have
-				cycles and bikes for all brand for every rider at the best price..</p>
-			<a th:if="${user != null and user.role=='ROLE_BUYER'}"
-				th:href="@{/buyer/dashboard/viewCycle/0}">
-				<button class="btn btn-lg text-white" id="shopnow">Shop Now..!!</button>
-			</a>
-			</a> <a th:if="${user != null and user.role=='ROLE_ADMIN'}"
-				th:href="@{/admin/index/0}">
-				<button class="btn  btn-lg text-white" id="shopnow">My
-					Dashboard</button>
-			</a>
-		</div>
-		
-
-
-
+			<p>Check out an extensive range of bicycles online. We havecycles and bikes for all brand for every rider at
+				the best price..</p><a th:if="${user != null and user.role=='ROLE_BUYER'}"
+				th:href="@{/buyer/dashboard/viewCycle/0}"><button class="btn btn-lg text-white" id="shopnow">Shop
+					Now..!!</button></a></a> <a th:if="${user != null and user.role=='ROLE_ADMIN'}"
+				th:href="@{/admin/index/0}"><button class="btn btn-lg text-white" id="shopnow">MyDashboard</button></a>
+		</div>    
 	</section> -->
 
-
-	<!-- banner section start -->
-	<div class="banner_section layout_padding">
-		<div id="main_slider" class="carousel slide" data-ride="carousel">
-		   <div class="carousel-inner">
-			  <div class="carousel-item active">
-				 <div class="container">
-					<div class="row">
-					   <div class="col-md-7">
-						  <div class="best_text">Best</div>
-						  <div class="image_1"><img src="img/img-1.png"></div>
-					   </div>
-					   <div class="col-md-5">
-						  <h1 class="banner_taital">New Model Cycle</h1>
-						  <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content </p>
-						  <div class="contact_bt"><a href="contact.html">Shop Now</a></div>
-					   </div>
-					</div>
-				 </div>
-			  </div>
-			  <div class="carousel-item">
-				 <div class="container">
-					<div class="row">
-					   <div class="col-md-7">
-						  <div class="best_text">Best</div>
-						  <div class="image_1"><img src="img/img-1.png"></div>
-					   </div>
-					   <div class="col-md-5">
-						  <h1 class="banner_taital">New Model Cycle</h1>
-						  <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content </p>
-						  <div class="contact_bt"><a href="contact.html">Shop Now</a></div>
-					   </div>
-					</div>
-				 </div>
-			  </div>
-			  <div class="carousel-item">
-				 <div class="container">
-					<div class="row">
-					   <div class="col-md-7">
-						  <div class="best_text">Best</div>
-						  <div class="image_1"><img src="img/img-1.png"></div>
-					   </div>
-					   <div class="col-md-5">
-						  <h1 class="banner_taital">New Model Cycle</h1>
-						  <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content </p>
-						  <div class="contact_bt"><a href="contact.html">Shop Now</a></div>
-					   </div>
-					</div>
-				 </div>
-			  </div>
-		   </div>
-		   <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
-		   <i class="fa fa-angle-left"></i>
-		   </a>
-		   <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
-		   <i class="fa fa-angle-right"></i>
-		   </a>
-		</div>
-	 </div>
-
-
-
-	<section>
-	
+	   <section>   <!-- news section start -->
+		<!-- contact section start -->
 		
+
+
 		
-		 <!-- news section start -->
-		 <div class="news_section layout_padding">
-			<div class="container">
-			   <h1 class="news_taital">News</h1>
-			   <p class="news_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using </p>
-			   <div class="news_section_2 layout_padding">
-				  <div class="row">
-					 <div class="col-sm-4">
-						<div class="box_main_1">
-						   <div class="zoomout frame"><img src="/img/img-6.png"></div>
-						   <div class="padding_15">
-							  <h2 class="speed_text">Speed cycle</h2>
-							  <div class="post_text">Post by : Den <span style="float: right;">20-12-2019</span></div>
-							  <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using </p>
-						   </div>
+
+		<div class=" ">
+			<div id="main_slider" class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-7">
+									<div class="best_text">Best</div>
+									<div class="image_1"><img src="img/img-1.png"></div>
+								</div>
+								<div class="col-md-5">
+									<h1 class="banner_taital">New Model Cycle</h1>
+									<p class="banner_text">It is a long established fact that a reader will be
+										distracted by
+										the readable content </p>
+									<div class="contact_bt"><a href="contact.html">Shop Now</a></div>
+								</div>
+							</div>
 						</div>
-					 </div>
-					 <div class="col-sm-4">
-						<div class="box_main_1">
-						   <div class="zoomout frame"><img src="/img/img-7.png"></div>
-						   <div class="padding_15">
-							  <h2 class="speed_text">Speed cycle</h2>
-							  <div class="post_text">Post by : Den <span style="float: right;">20-12-2019</span></div>
-							  <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using </p>
-						   </div>
+					</div>
+					<div class="carousel-item">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-7">
+									<div class="best_text">Best</div>
+									<div class="image_1"><img src="img/img-1.png"></div>
+								</div>
+								<div class="col-md-5">
+									<h1 class="banner_taital">New Model Cycle</h1>
+									<p class="banner_text">It is a long established fact that a reader will be
+										distracted by
+										the readable content </p>
+									<div class="contact_bt"><a href="contact.html">Shop Now</a></div>
+								</div>
+							</div>
 						</div>
-					 </div>
-					 <div class="col-sm-4">
-						<div class="box_main_1">
-						   <div class="zoomout frame"><img src="/img/img-8.png"></div>
-						   <div class="padding_15">
-							  <h2 class="speed_text">Jaump cycle</h2>
-							  <div class="post_text">Post by : Den <span style="float: right;">20-12-2019</span></div>
-							  <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using </p>
-						   </div>
+					</div>
+					<div class="carousel-item">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-7">
+									<div class="best_text">Best</div>
+									<div class="image_1"><img src="img/img-1.png"></div>
+								</div>
+								<div class="col-md-5">
+									<h1 class="banner_taital">New Model Cycle</h1>
+									<p class="banner_text">It is a long established fact that a reader will be
+										distracted by
+										the readable content </p>
+									<div class="contact_bt"><a href="contact.html">Shop Now</a></div>
+								</div>
+							</div>
 						</div>
-					 </div>
-				  </div>
-			   </div>
+					</div>
+				</div><a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev"><i
+						class="fa fa-angle-left"></i></a><a class="carousel-control-next" href="#main_slider"
+					role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
 			</div>
-		 </div>
-		 <!-- news section end -->
-		 <!-- contact section start -->
-		 <div class="contact_section layout_padding">
-			<div class="container">
-			   <div class="contact_main">
-				  <h1 class="request_text">A Call Back</h1>
-				  <form action="/action_page.php">
-					 <div class="form-group">
-						<input type="text" class="email-bt" placeholder="Name" name="Name">
-					 </div>
-					 <div class="form-group">
-						<input type="text" class="email-bt" placeholder="Email" name="Name">
-					 </div>
-					 <div class="form-group">
-						<input type="text" class="email-bt" placeholder="Phone Numbar" name="Email">
-					 </div>
-					 <div class="form-group">
-						<textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
-					 </div>
-				  </form>
-				  <div class="send_btn"><a href="#">SEND</a></div>
-			   </div>
-			</div>
-		 </div>
-	</section>
 
-
-	
-
+	</section>    
 </body>
+
 </html>
