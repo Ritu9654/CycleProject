@@ -39,86 +39,81 @@
 
 
 
-				<div class="table-responsive">
-					<table class="table table-hover ">
-						<thead class="thead-light ">
-							<tr>
-								<th scope="col">Name</th>
-								<th scope="col">Type</th>
-								<th scope="col">Model</th>
-								<th scope="col">Description</th>
-								<th scope="col">Price</th>
-
-								<th scope="col">Quantity</th>
-								<th scope="col">Image</th>
-
-								<th scope="col">Status</th>
-
-								<th scope="col">Action</th>
-							</tr>
-						</thead>
-
-						<tbody>
-							<tr th:each="c : ${cycles}">
-
-
-
-
-
-								<td th:text="${c.name}"></td>
-
-								<td th:text="${c.type}"></td>
-
-								<td th:text="${c.model}"></td>
-
-								<td th:text="${c.description}"></td>
-
-								<td th:text="${c.price}"></td>
-
-
-								<!--<td th:if="${c.quantity>0}" th:text="(${c.quantity}) " style="color:rgb(0, 128, 64)">In stock</td>-->
-
-								<td th:text="${c.quantity}"></td>
-
-								<td><a th:href="@{'/img/'+${c.imageurl}}" target="_blank">
+				<div class="table-responsive tilesparent">
+					
+					<div th:each="c : ${cycles}">
+						
+						<div class="card" style="width: 18rem;">
+						  <a th:href="@{'/img/'+${c.imageurl}}" target="_blank">
 										<img width="220" height="250" border="0" align="center"
 										th:src="@{'/img/'+${c.imageurl}}" />
-								</a></td>
+								</a>
+						  <div class="card-body">
+						    <h5 class="card-title"  th:text="${c.name}" style="color:darkcyan;"></h5>
+						    <p class="card-text" th:text="${c.description}"></p>
+						    
+						    
+						    
+						    
+						   <div class="container">
+							   
+							   <div class="row">
+							    <div class="col-sm leftlabel">
+							      Type
+							    </div>
+							    <div class="col-sm" th:text="${c.type}">
+							      
+							    </div>
+							  </div>
+							  
+							   <div class="row">
+							    <div class="col-sm leftlabel">
+							      Model
+							    </div>
+							    <div class="col-sm" th:text="${c.model}">
+							      
+							    </div>
+							  </div>
+							   
+							  <div class="row">
+							    <div class="col-sm leftlabel">
+							      Status
+							    </div>
+							   
+							     <div class="col-sm" th:if="${c.quantity>0}" style="color: rgb(0, 128, 64)">In
+									stock</div>
 
 
-								<td th:if="${c.quantity>0}" style="color: rgb(0, 128, 64)">In
-									stock</td>
-
-
-								<td th:if="${c.quantity<=0}" style="color: rgb(255, 0, 0)">Out
-									of stock</td>
-
-
-
-
-
-
-
-
-								<!--<td th:if="${c.quantity>0}"><a ><button th:onclick="|bookCyclefun(${c.cid})|" class="btn btn-primary"> Book </button></a></td>-->
-								<td th:if="${c.quantity>0}"><a
-									th:href="@{'/buyer/addToCart/'+${c.cid}}"
-									class="btn btn-primary"> Add to cart</a></td>
-
-
-
-
-
-								<td th:if="${c.quantity<=0}"><a><button type="button"
-											class="btn btn-light" disabled>Add to Cart</button></a></td>
-
-
-
-
-
-							</tr>
-						</tbody>
-					</table>
+								<div class="col-sm" th:if="${c.quantity<=0}" style="color: rgb(255, 0, 0)">Out
+									of stock</div>
+							   
+							  </div>
+							  
+							  <div class="row">
+							    <div class="col-sm leftlabel">
+							      Price
+							    </div>
+							    <div class="col-sm" th:text=" &#x20B9; + ${c.price}">
+							      
+							    </div>
+							  </div>
+							  
+							  
+							  
+							</div>
+						    <br>
+						    <a th:if="${c.quantity>0}"><a
+									th:href="@{'/buyer/addToCart/'+${c.cid}}" class="btn btn-outline-success">Add to Cart</a>
+						    
+						    <a th:if="${c.quantity<=0}" class="btn btn-outline-success">Add to Cart</a>
+						    
+						    
+						    <a th:href="@{'/'+${c.cid}+'/cycle'}" class="btn btn-outline-primary">View Cycle</a>
+						  </div>
+						</div>
+						
+					</div>
+					
 				</div>
 
 				<!--  pagination part -->

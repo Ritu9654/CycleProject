@@ -173,3 +173,15 @@ footer {
 	
 }
 
+.tilesparent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 3%;
+}
+
+.leftlabel{
+	font-weight: bold;
+}
+

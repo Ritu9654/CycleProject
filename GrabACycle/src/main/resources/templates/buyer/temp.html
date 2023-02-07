@@ -1,0 +1,80 @@
+<table class="table table-hover ">
+						<thead class="thead-light ">
+							<tr>
+								<th scope="col">Name</th>
+								<th scope="col">Type</th>
+								<th scope="col">Model</th>
+								<th scope="col">Description</th>
+								<th scope="col">Price</th>
+
+								<th scope="col">Quantity</th>
+								<th scope="col">Image</th>
+
+								<th scope="col">Status</th>
+
+								<th scope="col">Action</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							
+							<tr th:each="c : ${cycles}">
+
+
+
+
+
+								<td th:text="${c.name}"></td>
+
+								<td th:text="${c.type}"></td>
+
+								<td th:text="${c.model}"></td>
+
+								<td th:text="${c.description}"></td>
+
+								<td th:text="${c.price}"></td>
+
+
+								<!--<td th:if="${c.quantity>0}" th:text="(${c.quantity}) " style="color:rgb(0, 128, 64)">In stock</td>-->
+
+								<td th:text="${c.quantity}"></td>
+
+								<td><a th:href="@{'/img/'+${c.imageurl}}" target="_blank">
+										<img width="220" height="250" border="0" align="center"
+										th:src="@{'/img/'+${c.imageurl}}" />
+								</a></td>
+
+
+								<td th:if="${c.quantity>0}" style="color: rgb(0, 128, 64)">In
+									stock</td>
+
+
+								<td th:if="${c.quantity<=0}" style="color: rgb(255, 0, 0)">Out
+									of stock</td>
+
+
+
+
+
+
+
+
+								<!--<td th:if="${c.quantity>0}"><a ><button th:onclick="|bookCyclefun(${c.cid})|" class="btn btn-primary"> Book </button></a></td>-->
+								<td th:if="${c.quantity>0}"><a
+									th:href="@{'/buyer/addToCart/'+${c.cid}}"
+									class="btn btn-primary"> Add to cart</a></td>
+
+
+
+
+
+								<td th:if="${c.quantity<=0}"><a><button type="button"
+											class="btn btn-light" disabled>Add to Cart</button></a></td>
+
+
+
+
+
+							</tr>
+						</tbody>
+					</table>
